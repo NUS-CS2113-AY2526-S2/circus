@@ -1,5 +1,6 @@
 package circus;
 
+<<<<<<< Updated upstream
 import circus.stuff.Equipment;
 import circus.stuff.Cannon;
 import circus.stuff.Ladder;
@@ -9,6 +10,16 @@ import circus.animal.Duck;
 import circus.animal.Parrot;
 import circus.animal.Tiger;
 
+=======
+import circus.animal.*;
+import circus.stuff.Cannon;
+import circus.stuff.Equipment;
+import circus.stuff.Ladder;
+>>>>>>> Stashed changes
+
+import javax.xml.namespace.QName;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Circus {
     private static Animal[] animals = {
@@ -43,8 +54,36 @@ public class Circus {
     }
 
     public static void main(String[] args) {
+        System.out.println("Number of animals: " + animals.length);
+
+        ArrayList<Animal> animalArrayList = new ArrayList<>(Arrays.asList(animals));
+        System.out.println("Number of animals in circus (AL): " + animalArrayList.size());
+        animalArrayList.add(new Elephant(name:"Strong One"));
+        printAllAnimals(animalArrayList);
+        printNumberofAnimals(animalArrayList);
+
+        animalArrayList.add(new Duck(name:"Andy"));
+        Tiger sherKhan = new Tiger(name:"Sher Khan");
+        animalArrayList.add(sherKhan);
+        Parrot bobby = new Parrot(name:"bobby");
+        animalArrayList.add(bobby);
+
+        System.out.println();
+
         makeAnimalsTalk();
         System.out.println("Total value of animals " + calculateAssetValue(animals));
         System.out.println("Total value of equipments " + calculateAssetValue(equipments));
     }
+
+    private static void printAllAnimals(@NotNull ArrayList<Animal> animals) {
+        for (Animal a : animals) {
+            System.out.println(a);
+        }
+    }
+
+    private static void printNumberofAnimals(@NotNull ArrayList<Animal> animals){
+        System.out.println("Number of animals in circus: " + animals.size());
+    }
+
+
 }
